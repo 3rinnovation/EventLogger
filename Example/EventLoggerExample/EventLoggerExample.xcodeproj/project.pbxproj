@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		4D3AA8BC2ED7FDB100F7ACF4 /* EventLogger in Frameworks */ = {isa = PBXBuildFile; productRef = 4D3AA8BB2ED7FDB100F7ACF4 /* EventLogger */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		4D3AA8A22ED7FD3C00F7ACF4 /* EventLoggerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventLoggerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D3AA8BC2ED7FDB100F7ACF4 /* EventLogger in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,7 @@
 			);
 			name = EventLoggerExample;
 			packageProductDependencies = (
+				4D3AA8BB2ED7FDB100F7ACF4 /* EventLogger */,
 			);
 			productName = EventLoggerExample;
 			productReference = 4D3AA8A22ED7FD3C00F7ACF4 /* EventLoggerExample.app */;
@@ -107,6 +113,9 @@
 			);
 			mainGroup = 4D3AA8992ED7FD3C00F7ACF4;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				4D3AA8BA2ED7FDB100F7ACF4 /* XCRemoteSwiftPackageReference "EventLogger" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 4D3AA8A32ED7FD3C00F7ACF4 /* Products */;
 			projectDirPath = "";
@@ -145,7 +154,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2B5BZ6NXGR;
+				DEVELOPMENT_TEAM = 8PRV428ULN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EventLoggerExample/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -153,12 +162,13 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportsDocumentBrowser = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.3rinnovation.EventLoggerExample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.3rinnovation.EventLoggerExamples;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -177,7 +187,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2B5BZ6NXGR;
+				DEVELOPMENT_TEAM = 8PRV428ULN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EventLoggerExample/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -185,12 +195,13 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportsDocumentBrowser = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.3rinnovation.EventLoggerExample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.3rinnovation.EventLoggerExamples;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -345,6 +356,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4D3AA8BA2ED7FDB100F7ACF4 /* XCRemoteSwiftPackageReference "EventLogger" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/3rinnovation/EventLogger";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4D3AA8BB2ED7FDB100F7ACF4 /* EventLogger */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D3AA8BA2ED7FDB100F7ACF4 /* XCRemoteSwiftPackageReference "EventLogger" */;
+			productName = EventLogger;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4D3AA89A2ED7FD3C00F7ACF4 /* Project object */;
 }

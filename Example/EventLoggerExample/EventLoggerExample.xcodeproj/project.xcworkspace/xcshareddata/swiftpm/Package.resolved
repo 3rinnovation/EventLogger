@@ -1,0 +1,15 @@
+{
+  "originHash" : "9974062e939ca7ffc4915b2e863b5f8407e19bd0eebcf350721560d635ac711f",
+  "pins" : [
+    {
+      "identity" : "eventlogger",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/3rinnovation/EventLogger",
+      "state" : {
+        "branch" : "main",
+        "revision" : "8ea0dbd400cb9cbb9a99c7fc513e6b0286c00763"
+      }
+    }
+  ],
+  "version" : 3
+}
