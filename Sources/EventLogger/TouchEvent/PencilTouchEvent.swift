@@ -8,14 +8,14 @@
 import Foundation
 
 public struct PencilTouchEvent: TouchEvent {
-    let id: String
-    let type: TouchType
-    let phase: TouchPhase
-    let locationX: CGFloat
-    let locationY: CGFloat
-    let timestamp: Date
-    
-    let force: CGFloat
-    let altitudeAngle: CGFloat
-    let azimuthAngle: CGFloat
+    public let id: String
+    public let type: TouchType
+    public let phase: TouchPhase
+    public let locationX: CGFloat
+    public let locationY: CGFloat
+    public let timestamp: Date
+
+    public let force: CGFloat
+    public let altitudeAngle: CGFloat
+    public let azimuthAngle: CGFloat
 }

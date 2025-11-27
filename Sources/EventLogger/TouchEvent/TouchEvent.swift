@@ -7,13 +7,13 @@
 
 import Foundation
 
-enum TouchType: String, Codable {
+public enum TouchType: String, Codable {
     case direct = "DIRECT"
     case trackpad = "TRACKPAD"
     case pencil = "PENCIL"
 }
 
-enum TouchPhase: String, Codable {
+public enum TouchPhase: String, Codable {
     case began = "BEGAN"
     case moved = "MOVED"
     case stationary = "STATIONARY"
@@ -24,7 +24,7 @@ enum TouchPhase: String, Codable {
     case regionExited = "REGION_EXITED"
 }
 
-protocol TouchEvent: Codable {
+public protocol TouchEvent: Codable {
     var id: String { get }
     var type: TouchType { get }
     var phase: TouchPhase { get }
