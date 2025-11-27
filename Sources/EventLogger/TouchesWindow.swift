@@ -7,11 +7,22 @@
 
 import UIKit
 
-class TouchesWindow: UIWindow {
+public class TouchesWindow: UIWindow {
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+
+    public override init(windowScene: UIWindowScene) {
+        super.init(windowScene: windowScene)
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
     private var touchIds: [Int: String] = [:]
     private var keyPressTimes: [String: Date] = [:]
     
-    override func sendEvent(_ event: UIEvent) {
+    public override func sendEvent(_ event: UIEvent) {
         super.sendEvent(event)
         
         if let touches = event.allTouches {
@@ -27,7 +38,7 @@ class TouchesWindow: UIWindow {
         }
     }
     
-    override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+    public override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
         super.pressesBegan(presses, with: event)
         for press in presses {
             if let key = press.key?.characters, !key.isEmpty {
@@ -46,7 +57,7 @@ class TouchesWindow: UIWindow {
         }
     }
 
-    override func pressesEnded(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+    public override func pressesEnded(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
         super.pressesEnded(presses, with: event)
         for press in presses {
             if let key = press.key?.characters, !key.isEmpty, let pressDownDate = keyPressTimes[key] {
