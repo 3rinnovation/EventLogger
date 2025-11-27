@@ -24,21 +24,16 @@ struct KeyboardEvent: Codable {
     /// input field text
     let inputText: String
     
-    private static let appGroupIdentifier = "group.com.3rinnovation.triple-iOS-student"
     private static let fileName = "keyboard_events.log"
-    
-    /// App Groups의 공유 폴더에서 파일 경로 가져오기
-    private static func getFileURL() -> URL? {
-        guard let containerURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: appGroupIdentifier) else {
-            print("App Group 컨테이너 URL을 찾을 수 없습니다.")
-            return nil
-        }
-        return containerURL.appendingPathComponent(fileName)
+
+    /// 파일 경로 가져오기
+    private static func getFileURL() -> URL {
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent(fileName)
     }
     
     /// 🔹 JSON을 파일에 추가 (읽지 않고 바로 추가)
     static func appendToFile(event: KeyboardEvent) {
-        guard let fileURL = getFileURL() else { return }
+        let fileURL = getFileURL()
         
         do {
             let jsonData = try JSONEncoder.iso8601Encoder().encode(event)
@@ -59,7 +54,8 @@ struct KeyboardEvent: Codable {
     
     /// 🔹 저장된 이벤트 목록 불러오기
     static func loadFromFile() -> [KeyboardEvent] {
-        guard let fileURL = getFileURL(), FileManager.default.fileExists(atPath: fileURL.path) else {
+        let fileURL = getFileURL()
+        guard FileManager.default.fileExists(atPath: fileURL.path) else {
             return []
         }
         
@@ -78,7 +74,7 @@ struct KeyboardEvent: Codable {
     }
     
     static func deleteFile() {
-        guard let fileURL = getFileURL() else { return }
+        let fileURL = getFileURL()
         
         do {
             if FileManager.default.fileExists(atPath: fileURL.path) {
