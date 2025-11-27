@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PencilTouchEvent: TouchEvent {
+public struct PencilTouchEvent: TouchEvent {
     let id: String
     let type: TouchType
     let phase: TouchPhase
