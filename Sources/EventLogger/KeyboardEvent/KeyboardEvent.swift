@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct KeyboardEvent: Codable {
+public struct KeyboardEvent: Codable {
     enum KeyState: String, Codable {
         case pressDown = "PRESS_DOWN"
         case pressUp = "PRESS_UP"
     }
-    
+
     // 누른 키
     let key: String
     // 눌렀는지 땠는지
@@ -52,28 +52,22 @@ struct KeyboardEvent: Codable {
         }
     }
     
-    /// 🔹 저장된 이벤트 목록 불러오기
-    static func loadFromFile() -> [KeyboardEvent] {
+    /// 🔹 저장된 로그 데이터 불러오기
+    public static func loadFromFile() -> Data? {
         let fileURL = getFileURL()
         guard FileManager.default.fileExists(atPath: fileURL.path) else {
-            return []
+            return nil
         }
-        
+
         do {
-            let fileContent = try String(contentsOf: fileURL, encoding: .utf8)
-            let jsonStrings = fileContent.components(separatedBy: "\n").filter { !$0.isEmpty }
-            
-            return jsonStrings.compactMap { jsonString in
-                guard let data = jsonString.data(using: .utf8) else { return nil }
-                return try? JSONDecoder.iso8601Decoder().decode(KeyboardEvent.self, from: data)
-            }
+            return try Data(contentsOf: fileURL)
         } catch {
             print("파일 읽기 실패: \(error)")
-            return []
+            return nil
         }
     }
     
-    static func deleteFile() {
+    public static func deleteFile() {
         let fileURL = getFileURL()
         
         do {

@@ -38,11 +38,11 @@ extension TouchEvent {
         let type = self.type
         let fileName = "touch_events_\(type.rawValue).json"
         let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent(fileName)
-        
+
         do {
             let jsonData = try JSONEncoder.iso8601Encoder().encode(self)
             let jsonString = String(data: jsonData, encoding: .utf8)! + "\n"  // 한 줄씩 저장
-            
+
             if let fileHandle = FileHandle(forWritingAtPath: directory.path) {
                 fileHandle.seekToEndOfFile() // 파일 끝으로 이동
                 fileHandle.write(jsonString.data(using: .utf8)!)
@@ -55,13 +55,39 @@ extension TouchEvent {
             print("파일 저장 실패: \(error)")
         }
     }
-    
-    static func loadFromFile<T: TouchEvent>() -> [T] {
-        return []
+
+    private static func getFileURL(type: TouchType) -> URL {
+        let fileName = "touch_events_\(type.rawValue).json"
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent(fileName)
     }
-    
-    static func deleteFile() {
-        
+
+    public static func loadFromFile(type: TouchType) -> Data? {
+        let fileURL = getFileURL(type: type)
+        guard FileManager.default.fileExists(atPath: fileURL.path) else {
+            return nil
+        }
+
+        do {
+            return try Data(contentsOf: fileURL)
+        } catch {
+            print("파일 읽기 실패: \(error)")
+            return nil
+        }
+    }
+
+    public static func deleteFile(type: TouchType) {
+        let fileURL = getFileURL(type: type)
+
+        do {
+            if FileManager.default.fileExists(atPath: fileURL.path) {
+                try FileManager.default.removeItem(at: fileURL)
+                print("파일 삭제 완료: \(fileURL.path)")
+            } else {
+                print("삭제할 파일이 없습니다.")
+            }
+        } catch {
+            print("파일 삭제 실패: \(error)")
+        }
     }
 }
 
