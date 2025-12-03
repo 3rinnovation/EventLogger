@@ -8,21 +8,21 @@
 import Foundation
 
 public struct KeyboardEvent: Codable {
-    enum KeyState: String, Codable {
+    public enum KeyState: String, Codable {
         case pressDown = "PRESS_DOWN"
         case pressUp = "PRESS_UP"
     }
 
     // 누른 키
-    let key: String
+    public let key: String
     // 눌렀는지 땠는지
-    let state: KeyState
+    public let state: KeyState
     // 이벤트 발생 시간 (iso8601)
-    let timestamp: Date
+    public let timestamp: Date
     /// state == "PRESS_UP" 일 경우, holdTime 이 0.5ms 이상일 경우
-    let holodTime: Double?
+    public let holodTime: Double?
     /// input field text
-    let inputText: String
+    public let inputText: String
     
     private static let fileName = "keyboard_events.log"
 
