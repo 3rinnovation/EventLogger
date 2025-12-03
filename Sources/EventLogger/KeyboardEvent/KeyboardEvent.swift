@@ -31,6 +31,14 @@ public struct KeyboardEvent: Codable {
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent(fileName)
     }
     
+    public init(key: String, state: KeyState, timestamp: Date, holodTime: Double?, inputText: String) {
+        self.key = key
+        self.state = state
+        self.timestamp = timestamp
+        self.holodTime = holodTime
+        self.inputText = inputText
+    }
+    
     /// 🔹 JSON을 파일에 추가 (읽지 않고 바로 추가)
     static func appendToFile(event: KeyboardEvent) {
         let fileURL = getFileURL()
@@ -82,5 +90,3 @@ public struct KeyboardEvent: Codable {
         }
     }
 }
-                  
-
