@@ -40,7 +40,7 @@ public struct KeyboardEvent: Codable {
     }
     
     /// 🔹 JSON을 파일에 추가 (읽지 않고 바로 추가)
-    static func appendToFile(event: KeyboardEvent) {
+    public static func appendToFile(event: KeyboardEvent) {
         let fileURL = getFileURL()
         
         do {
