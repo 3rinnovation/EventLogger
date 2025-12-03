@@ -22,13 +22,15 @@ public class TouchesWindow: UIWindow {
     private var touchIds: [Int: String] = [:]
     private var keyPressTimes: [String: Date] = [:]
     
+    public var touchEventHandler: ((TouchEvent) -> Void)?
+    
     public override func sendEvent(_ event: UIEvent) {
         super.sendEvent(event)
         
         if let touches = event.allTouches {
             for touch in touches {
                 let touchEvent = createTouchEvent(touch: touch)
-                
+                touchEventHandler?(touchEvent)
                 touchEvent.saveToFile()
                 
                 if touch.phase == .ended || touch.phase == .cancelled {
